@@ -61,7 +61,7 @@ const startSocket = (server) => {
     });
 
     socket.on("disconnect", () => {
-      console.log(`${socket.username} disconnected`);
+      console.log(`${socket.username || 'Unknown user'} disconnected`);
       if (socket.room && rooms[socket.room]) {
         const index = rooms[socket.room].indexOf(socket);
         if (index !== -1) {
